@@ -19,48 +19,26 @@ if(CMAKE_VERSION VERSION_GREATER 3.12)
 endif()
 
 # SDL2
-set(SDL2_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2-2.30.6")
-
-add_subdirectory(${SDL2_DIR})
-
-include_directories("${SDL2_DIR}/include")
-
-target_link_libraries(2DGameEngine SDL2 SDL2main)
-
-if(WIN32)
-    add_custom_command(
-        TARGET 2DGameEngine POST_BUILD
-        COMMAND "${CMAKE_COMMAND}" -E copy_if_different "$<TARGET_FILE:SDL2::SDL2>" "$<TARGET_FILE_DIR:2DGameEngine>"
-        VERBATIM
-    )
-endif()
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+link_directories(${SDL2_LIBRARY_DIRS})
 
 # SDL2_image
-set(SDL2_IMAGE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2_image-2.8.2")
-
-add_subdirectory(${SDL2_IMAGE_DIR})
-
-include_directories("${SDL2_IMAGE_DIR}/include")
-
-target_link_libraries(2DGameEngine SDL2_image::SDL2_image)
+find_package(SDL2_image REQUIRED)
+include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
+link_directories(${SDL2_IMAGE_LIBRARY_DIRS})
 
 # SDL2_ttf
-set(SDL2_TTF_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2_ttf-2.22.0")
-
-add_subdirectory(${SDL2_TTF_DIR})
-
-include_directories("${SDL2_TTF_DIR}/include")
-
-target_link_libraries(2DGameEngine SDL2_ttf::SDL2_ttf)
+find_package(SDL2_ttf REQUIRED)
+include_directories(${SDL2_TTF_INCLUDE_DIRS})
+link_directories(${SDL2_TTF_LIBRARY_DIRS})
 
 # SDL2_mixer
-set(SDL2_MIXER_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2_mixer-2.8.0")
+find_package(SDL2_mixer REQUIRED)
+include_directories(${SDL2_MIXER_INCLUDE_DIRS})
+link_directories(${SDL2_MIXER_LIBRARY_DIRS})
 
-add_subdirectory(${SDL2_MIXER_DIR})
-
-include_directories("${SDL2_MIXER_DIR}/include")
-
-target_link_libraries(2DGameEngine SDL2_mixer::SDL2_mixer)
+target_link_libraries(2DGameEngine SDL2::SDL2 SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf SDL2_mixer::SDL2_mixer)
 
 # glm
 add_subdirectory("thirdparty/glm-1.0.1-light/glm")
