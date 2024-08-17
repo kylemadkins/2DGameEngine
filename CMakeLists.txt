@@ -41,16 +41,19 @@ if(WIN32)
 
     if(CMAKE_SIZEOF_VOID_P EQUAL 8)
         # 64-bit architecture
-        set(SDL2_DLL_PATH ${SDL2_DIR}/lib/x64/SDL2.dll)
+        set(SDL2_DLL_PATH /lib/x64/)
     else()
         # 32-bit architecture
-        set(SDL2_DLL_PATH ${SDL2_DIR}/lib/x86/SDL2.dll)
+        set(SDL2_DLL_PATH /lib/x86/)
     endif()
 
     add_custom_command(
         TARGET 2DGameEngine POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${SDL2_DLL_PATH}
+            ${SDL2_DIR}${SDL2_DLL_PATH}SDL2.dll
+            ${SDL2_IMAGE_DIR}${SDL2_DLL_PATH}SDL2_image.dll
+            ${SDL2_TTF_DIR}${SDL2_DLL_PATH}SDL2_ttf.dll
+            ${SDL2_MIXER_DIR}${SDL2_DLL_PATH}SDL2_mixer.dll
             $<TARGET_FILE_DIR:2DGameEngine>
     )
 else()
@@ -129,3 +132,10 @@ add_library(
 target_link_libraries(2DGameEngine lua)
 
 include_directories(${LUA_DIR})
+
+# Copy assets
+add_custom_command(TARGET 2DGameEngine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_CURRENT_SOURCE_DIR}/assets
+    $<TARGET_FILE_DIR:2DGameEngine>/assets
+)
