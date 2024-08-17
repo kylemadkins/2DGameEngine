@@ -51,7 +51,7 @@ add_subdirectory(${SDL2_TTF_DIR})
 
 include_directories("${SDL2_TTF_DIR}/include")
 
-target_link_libraries(2DGameEngine SDL2_ttf)
+target_link_libraries(2DGameEngine SDL2_ttf-static)
 
 # SDL2_mixer
 set(SDL2_MIXER_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2_mixer-2.8.0")
@@ -60,7 +60,7 @@ add_subdirectory(${SDL2_MIXER_DIR})
 
 include_directories("${SDL2_MIXER_DIR}/include")
 
-target_link_libraries(2DGameEngine SDL2_mixer)
+target_link_libraries(2DGameEngine SDL2_mixer-static)
 
 # glm
 add_subdirectory("thirdparty/glm-1.0.1-light/glm")
