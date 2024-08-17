@@ -35,6 +35,33 @@ if(WIN32)
     )
 endif()
 
+# SDL2_image
+set(SDL2_IMAGE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2_image-2.8.2")
+
+add_subdirectory(${SDL2_IMAGE_DIR})
+
+include_directories("${SDL2_IMAGE_DIR}/include")
+
+target_link_libraries(2DGameEngine SDL2::image)
+
+# SDL2_ttf
+set(SDL2_TTF_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2_ttf-2.22.0")
+
+add_subdirectory(${SDL2_TTF_DIR})
+
+include_directories("${SDL2_TTF_DIR}/include")
+
+target_link_libraries(2DGameEngine SDL2::ttf)
+
+# SDL2_mixer
+set(SDL2_MIXER_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/SDL2_mixer-2.8.0")
+
+add_subdirectory(${SDL2_MIXER_DIR})
+
+include_directories("${SDL2_MIXER_DIR}/include")
+
+target_link_libraries(2DGameEngine SDL2::mixer)
+
 # glm
 add_subdirectory("thirdparty/glm-1.0.1-light/glm")
 include_directories("thirdparty/glm-1.0.1-light")
