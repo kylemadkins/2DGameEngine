@@ -2,7 +2,7 @@
 
 ## Building
 
-To build and run this project, make sure you have these dependencies installed on your machine:
+To build and run this project, make sure you have these dependencies installed on your machine. If you're using Windows, these are automatically included for you via CMake.
 * SDL2 (2.30.6)
 * SDL2_image (2.8.2)
 * SDL2_ttf (2.22.0)
@@ -10,7 +10,7 @@ To build and run this project, make sure you have these dependencies installed o
 
 The project was developed with Visual Studio 2022. It should detect the CMakeLists.txt automatically.
 
-If you're using macOS or Linux, you can run these commands from the root directory:
+If you're using macOS or Linux, you can run these commands from the root directory.
 ```
 cmake -B build -S .
 cd build
