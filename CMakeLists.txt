@@ -12,7 +12,7 @@ endif()
 project("2DGameEngine")
 
 # Add source to this project's executable.
-add_executable(2DGameEngine "src/main.cpp")
+add_executable(2DGameEngine "src/Main.cpp" "src/Game.h" "src/Game.cpp")
 
 if(CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET 2DGameEngine PROPERTY CXX_STANDARD 20)
@@ -110,7 +110,7 @@ add_library(
     ${LUA_DIR}/lutf8lib.c
     ${LUA_DIR}/lvm.c
     ${LUA_DIR}/lzio.c
-)
+ "src/Game.h" "src/Game.cpp")
 
 target_link_libraries(2DGameEngine lua)
 
