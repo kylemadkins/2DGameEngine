@@ -12,6 +12,7 @@ public:
 	Game();
 	~Game();
 	void Init();
+	void Setup();
 	void Run();
 	void ProcessInput();
 	void Update();
