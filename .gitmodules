@@ -1,0 +1,24 @@
+[submodule "thirdparty/SDL"]
+	path = thirdparty/SDL
+	url = https://github.com/libsdl-org/SDL.git
+[submodule "thirdparty/SDL_image"]
+	path = thirdparty/SDL_image
+	url = https://github.com/libsdl-org/SDL_image.git
+[submodule "thirdparty/SDL_ttf"]
+	path = thirdparty/SDL_ttf
+	url = https://github.com/libsdl-org/SDL_ttf.git
+[submodule "thirdparty/SDL_mixer"]
+	path = thirdparty/SDL_mixer
+	url = https://github.com/libsdl-org/SDL_mixer.git
+[submodule "thirdparty/glm"]
+	path = thirdparty/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "thirdparty/sol2"]
+	path = thirdparty/sol2
+	url = https://github.com/ThePhD/sol2.git
+[submodule "thirdparty/imgui"]
+	path = thirdparty/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "thirdparty/lua"]
+	path = thirdparty/lua
+	url = https://github.com/lua/lua.git

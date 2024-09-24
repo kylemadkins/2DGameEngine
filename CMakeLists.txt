@@ -1,7 +1,4 @@
-﻿# CMakeList.txt : CMake project for 2DGameEngine, include source and define
-# project specific logic here.
-#
-cmake_minimum_required(VERSION 3.8)
+﻿cmake_minimum_required(VERSION 3.8)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if(POLICY CMP0141)
@@ -19,32 +16,32 @@ if(CMAKE_VERSION VERSION_GREATER 3.12)
 endif()
 
 # SDL
-add_subdirectory("thirdparty/SDL-2.30.7")
+add_subdirectory("thirdparty/SDL")
 
 # SDL_image
-add_subdirectory("thirdparty/SDL_image-2.8.2")
+add_subdirectory("thirdparty/SDL_image")
 
 # SDL_ttf
-add_subdirectory("thirdparty/SDL_ttf-2.22.0")
+add_subdirectory("thirdparty/SDL_ttf")
 
 # SDL_mixer
 option(SDL2MIXER_VENDORED "Use vendored third-party libraries" ON)
-add_subdirectory("thirdparty/SDL_mixer-2.8.0")
+add_subdirectory("thirdparty/SDL_mixer")
 
 target_link_libraries(2DGameEngine SDL2::SDL2 SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf SDL2_mixer::SDL2_mixer)
 
 # glm
-add_subdirectory("thirdparty/glm-1.0.1-light/glm")
-include_directories("thirdparty/glm-1.0.1-light")
+add_subdirectory("thirdparty/glm")
+include_directories("thirdparty/glm")
 
 # sol2
-include_directories("thirdparty/sol2-3.3.0")
+include_directories("thirdparty/sol2/include")
 
 # imgui
-include_directories("thirdparty/imgui-1.91.0")
+include_directories("thirdparty/imgui")
 
 # Lua
-set(LUA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/lua-5.4.7")
+set(LUA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/lua")
 
 add_library(
     lua STATIC
