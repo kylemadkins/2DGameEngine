@@ -19,9 +19,11 @@ endif()
 add_subdirectory("thirdparty/SDL")
 
 # SDL_image
+option(SDL2IMAGE_VENDORED "Use vendored third-party libraries" ON)
 add_subdirectory("thirdparty/SDL_image")
 
 # SDL_ttf
+option(SDL2TTF_VENDORED "Use vendored third-party libraries" ON)
 add_subdirectory("thirdparty/SDL_ttf")
 
 # SDL_mixer
